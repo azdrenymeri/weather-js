@@ -1,1 +1,5 @@
-console.log('yay webpack is working');
+import { init } from './pageLoader';
+import { currentLocation } from './modules/current-location';
+init();
+
+currentLocation();
