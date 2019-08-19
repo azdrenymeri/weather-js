@@ -8,13 +8,6 @@ const searchWeatherByCity = (cityName) => {
               '&appid='+process.env.WEATHER_API_KEY+'&units=metric';
   getData(url);
 }
-const searchWeatherByCoordinates = (lat,long) => {
-  const url = 'https://api.openweathermap.org/data/2.5/weather?lat='+
-              lat+'&lon='+long+'&appid='+process.env.WEATHER_API_KEY+
-              '&units=metric';
-              console.log(lat,long);
-  getData(url);
-}
 
 const getData = (url) => {
   fetch(url)
@@ -38,4 +31,4 @@ const getData = (url) => {
 }
 
 
-export { searchWeatherByCity,searchWeatherByCoordinates }
+export { searchWeatherByCity }

@@ -9,7 +9,7 @@ const loadDOM = () => {
   const body = document.getElementsByTagName('body')[0];
    body.appendChild(searchContainer);
    body.appendChild(weatherContainer);
-    searchWeatherByCity('London');
+   searchWeatherByCity('London');
 
 }
 
