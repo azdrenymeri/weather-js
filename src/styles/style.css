@@ -16,6 +16,7 @@ body {
   position: absolute;
   -moz-transition: opacity 3s ease-in-out;
   transition: opacity 3s ease-in-out;
+  background-image: url('./../images/clouds.jpg');
 }
 
 /* Search Bar properties */
@@ -63,8 +64,15 @@ input#search-bar {
   float: right;
   width: 75px;
   height: 75px;
-  top: -62px;
-  right: -45px;
+  top: -31px;
+  right: -30px;
+}
+.submit-btn {
+  background-color: transparent;
+  height: 0;
+  width: 0;
+  border: none;
+  outline: none;
 }
 /* END searchbar properties */
 
@@ -78,10 +86,12 @@ input#search-bar {
   top: 30%;
   margin: 0 auto;
   left: 40%;
-  right: 40%;
   background-color: white;
   opacity: 0.8;
   padding: 10px;
+}
+.hidden {
+  display: none;
 }
 .card-container {
   display: inline;
@@ -95,7 +105,6 @@ input#search-bar {
 .card-header > div {
   display: inline-block;
   font-style: italic;
-  margin-left: 10px;
 }
 
 .card-body > img {

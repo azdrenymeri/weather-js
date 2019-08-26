@@ -1,12 +1,12 @@
-import { convertToCelciusUtil,convertToFahrenheitUtil } from './temperature-utils';
+import { convertToCelciusUtil, convertToFahrenheitUtil } from './temperature-utils';
 
 const weatherContainer = document.createElement('div');
-  weatherContainer.classList.add('card');
-  weatherContainer.innerHTML = `
+weatherContainer.classList.add('card', 'hidden');
+weatherContainer.innerHTML = `
     <div class="card-container">
       <div class="card-header">
-        <h1 id="title">New York</h1>
-        <div id="description">Partly clouds</div>
+        <h1 id="title"></h1>
+        <div id="description"></div>
         <div class="onoffswitch">
     <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" checked>
     <label class="onoffswitch-label" for="myonoffswitch">
@@ -15,7 +15,7 @@ const weatherContainer = document.createElement('div');
 </div>
       </div>
       <div class="card-body">
-        <img id="weather-icon" alt="icon" src="#"/>
+        <img id="weather-icon" alt="ic" src="#"/>
         <div id="temperature">40°C</div>
       </div>
       <div class="card-footer">
@@ -38,39 +38,44 @@ const weatherContainer = document.createElement('div');
 
       </div>
     </div>
-  `
-  const setData = (obj) =>{
-      document.getElementById('title').innerText = obj.title;
-      document.getElementById('description').innerText = obj.description;
-      document.getElementById('weather-icon')
-      .setAttribute("src",`http://openweathermap.org/img/wn/${obj.icon}@2x.png`);
-      document.getElementById('temperature').innerText = obj.temperature;
-      document.getElementById('humidity-val').innerText = obj.humidity;
-      document.getElementById('wind-speed-val').innerText = obj.windSpeed+"(m/s)";
-      document.getElementById('min-temp-val').innerText = obj.minTemp;
-      document.getElementById('max-temp-val').innerText = obj.maxTemp;
-  }
+  `;
+const showWeatherCard = () => {
+  document.getElementsByClassName('card')[0].classList.remove('hidden');
+};
 
-  const convertToCelcius = () => {
-      let temperature = document.getElementById('temperature');
-      temperature.innerText = convertToCelciusUtil(temperature.innerText.split('°')[0])+'°C';
+const setData = (obj) => {
+  document.getElementById('title').innerText = obj.title;
+  document.getElementById('description').innerText = obj.description;
+  document.getElementById('weather-icon')
+    .setAttribute('src', `http://openweathermap.org/img/wn/${obj.icon}@2x.png`);
+  document.getElementById('temperature').innerText = obj.temperature;
+  document.getElementById('humidity-val').innerText = obj.humidity;
+  document.getElementById('wind-speed-val').innerText = `${obj.windSpeed}(m/s)`;
+  document.getElementById('min-temp-val').innerText = obj.minTemp;
+  document.getElementById('max-temp-val').innerText = obj.maxTemp;
+};
 
-      let minTemp = document.getElementById('min-temp-val');
-      minTemp.innerText = convertToCelciusUtil(minTemp.innerText.split('°')[0])+'°C';
+const convertToCelcius = () => {
+  const temperature = document.getElementById('temperature');
+  temperature.innerText = `${convertToCelciusUtil(temperature.innerText.split('°')[0])}°C`;
 
-      let maxTemp = document.getElementById('max-temp-val');
-      maxTemp.innerText = convertToCelciusUtil(maxTemp.innerText.split('°')[0])+'°C';
-  }
-  const convertToFahrenheit = () => {
-    let temperature = document.getElementById('temperature');
-    temperature.innerText = convertToFahrenheitUtil(temperature.innerText.split('°')[0])+'°F';
+  const minTemp = document.getElementById('min-temp-val');
+  minTemp.innerText = `${convertToCelciusUtil(minTemp.innerText.split('°')[0])}°C`;
 
-    let minTemp = document.getElementById('min-temp-val');
-    minTemp.innerText = convertToFahrenheitUtil(minTemp.innerText.split('°')[0])+'°F';
+  const maxTemp = document.getElementById('max-temp-val');
+  maxTemp.innerText = `${convertToCelciusUtil(maxTemp.innerText.split('°')[0])}°C`;
+};
+const convertToFahrenheit = () => {
+  const temperature = document.getElementById('temperature');
+  temperature.innerText = `${convertToFahrenheitUtil(temperature.innerText.split('°')[0])}°F`;
 
-    let maxTemp = document.getElementById('max-temp-val');
-    maxTemp.innerText = convertToFahrenheitUtil(maxTemp.innerText.split('°')[0])+'°F';
+  const minTemp = document.getElementById('min-temp-val');
+  minTemp.innerText = `${convertToFahrenheitUtil(minTemp.innerText.split('°')[0])}°F`;
 
-  }
+  const maxTemp = document.getElementById('max-temp-val');
+  maxTemp.innerText = `${convertToFahrenheitUtil(maxTemp.innerText.split('°')[0])}°F`;
+};
 
-  export { weatherContainer,setData,convertToCelcius,convertToFahrenheit };
+export {
+  weatherContainer, setData, convertToCelcius, convertToFahrenheit, showWeatherCard,
+};
