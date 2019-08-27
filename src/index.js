@@ -1,1 +1,1 @@
-import { DOM } from './modules/DOM';
+import DOM from './modules/DOM';
