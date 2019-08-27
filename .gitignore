@@ -1,6 +1,4 @@
-.gitignore
-weather-js/node_modules
-.tern-project
+*node_modules
 .env
-.eslintcr
+.tern-project
 .eslintrc.json
