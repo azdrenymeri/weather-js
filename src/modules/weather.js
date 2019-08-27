@@ -3,41 +3,7 @@ import { convertToCelciusUtil, convertToFahrenheitUtil } from './temperature-uti
 const weatherContainer = document.createElement('div');
 weatherContainer.classList.add('card', 'hidden');
 weatherContainer.innerHTML = `
-    <div class="card-container">
-      <div class="card-header">
-        <h1 id="title"></h1>
-        <div id="description"></div>
-        <div class="onoffswitch">
-    <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" checked>
-    <label class="onoffswitch-label" for="myonoffswitch">
-        <span class="onoffswitch-inner"></span>
-    </label>
-</div>
-      </div>
-      <div class="card-body">
-        <img id="weather-icon" alt="ic" src="#"/>
-        <div id="temperature">40°C</div>
-      </div>
-      <div class="card-footer">
-        <div class="left-footer">
-          <div class="humidity">
-          <div id="humidity">Humidity</div> <div id="humidity-val">0</div>
-          </div>
-          <div class="wind-speed">
-          <div id="wind-speed">Wind speed</div> <div id="wind-speed-val">0</div>
-          </div>
-        </div>
-        <div class="right-footer">
-          <div class="max-temperature">
-          <div id="max-temp">Max temp.</div> <div id="max-temp-val">0</div>
-          </div>
-          <div class="min-temperature">
-          <div id="min-temp">Min temp.</div> <div id="min-temp-val">0</div>
-          </div>
-        </div>
 
-      </div>
-    </div>
   `;
 const showWeatherCard = () => {
   document.getElementsByClassName('card')[0].classList.remove('hidden');

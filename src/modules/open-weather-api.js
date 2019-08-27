@@ -10,4 +10,4 @@ const searchWeatherByCity = async (cityName) => {
   return response.json();
 };
 
-export default { searchWeatherByCity };
+export default searchWeatherByCity;

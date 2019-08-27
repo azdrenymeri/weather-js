@@ -1,11 +1,11 @@
-import { loadDOM } from '../pageLoader';
 import {
   convertToCelcius, setData, convertToFahrenheit, showWeatherCard,
-} from './weather-container';
-import { searchWeatherByCity } from './open-weather-api';
-import { getCityPhoto } from './flickr-api';
+} from './weather';
+import searchWeatherByCity from './open-weather-api';
+import getCityPhoto from './flickr-api';
+import '../styles/style.css';
 
-loadDOM();
+
 const toggleLoadingModal = () => {
   const main = document.getElementById('main');
   const loader = document.getElementById('loader');
@@ -24,6 +24,7 @@ const toggleLoadingModal = () => {
     loader.style.display = 'block';
   }
 };
+
 const setBackground = (json) => {
   const main = document.getElementsByClassName('background-image')[0];
   main.style.backgroundImage = `url(https://farm${json.farm}.staticflickr.com/${json.server}/${json.id}_${json.secret}_b.jpg)`;
@@ -35,8 +36,8 @@ document.getElementById('search-form').addEventListener('submit', (event) => {
   const searchBar = document.getElementById('search-bar');
 
   searchWeatherByCity(searchBar.value.trim()).then((json) => {
-    if (json.cod === '404') {
-      alert(json.message);
+    if (json.cod.startsWith('40')) {
+      alert('City was not found');
       searchBar.value = '';
     } else {
       toggleLoadingModal();
@@ -63,6 +64,9 @@ document.getElementById('search-form').addEventListener('submit', (event) => {
         toggleLoadingModal();
       });
     }
+  }).catch((error) => {
+    alert(error);
+    toggleLoadingModal();
   });
 });
 

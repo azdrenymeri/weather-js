@@ -8,4 +8,4 @@ const getCityPhoto = async (cityName) => {
 };
 
 
-export default { getCityPhoto };
+export default getCityPhoto;
