@@ -36,10 +36,7 @@ document.getElementById('search-form').addEventListener('submit', (event) => {
   const searchBar = document.getElementById('search-bar');
 
   searchWeatherByCity(searchBar.value.trim()).then((json) => {
-    if (json.cod.startsWith('40')) {
-      alert('City was not found');
-      searchBar.value = '';
-    } else {
+    if (json.cod === 200) {
       toggleLoadingModal();
 
       showWeatherCard();
@@ -63,6 +60,9 @@ document.getElementById('search-form').addEventListener('submit', (event) => {
         setBackground(selectedPhoto);
         toggleLoadingModal();
       });
+    } else {
+      alert('City was not found');
+      searchBar.value = '';
     }
   }).catch((error) => {
     alert(error);
