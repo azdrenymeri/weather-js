@@ -1,1 +1,1 @@
-console.log('yay webpack is working');
+import DOM from './modules/DOM';

@@ -6,10 +6,54 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Weather</title>
 </head>
-<body>
-<div id="container">
-
+<body id="app">
+  <main class="background-image" id="main">
+    <form class="search-container" id="search-form">
+    <input type="text" id="search-bar" placeholder="Press enter to search">
+    <button class="search-icon submit-btn" type="submit">
+    <a href="#"><img id="search-ic" class="search-icon" src="http://www.endlessicons.com/wp-content/uploads/2012/12/search-icon.png"></a>
+    </button>
+    </form>
+    <div class="card hidden">
+    <div class="card-container">
+      <div class="card-header">
+        <h1 id="title"></h1>
+        <div id="description"></div>
+        <div class="onoffswitch">
+    <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" checked>
+    <label class="onoffswitch-label" for="myonoffswitch">
+        <span class="onoffswitch-inner"></span>
+    </label>
 </div>
+      </div>
+      <div class="card-body">
+        <img id="weather-icon" alt="ic" src="#"/>
+        <div id="temperature">40°C</div>
+      </div>
+      <div class="card-footer">
+        <div class="left-footer">
+          <div class="humidity">
+          <div id="humidity">Humidity</div> <div id="humidity-val">0</div>
+          </div>
+          <div class="wind-speed">
+          <div id="wind-speed">Wind speed</div> <div id="wind-speed-val">0</div>
+          </div>
+        </div>
+        <div class="right-footer">
+          <div class="max-temperature">
+          <div id="max-temp">Max temp.</div> <div id="max-temp-val">0</div>
+          </div>
+          <div class="min-temperature">
+          <div id="min-temp">Min temp.</div> <div id="min-temp-val">0</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    </div>
+
+  </main>
+  <div id="loader"></div>
 <script src="app.js" charset="utf-8"></script>
 </body>
 </html>
