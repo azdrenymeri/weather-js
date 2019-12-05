@@ -1,5 +1,7 @@
-## Weather
-#### This is a very simple app which let's you search weather bassed on your location or by searching a location.
+## Weather App 
+#### A Weather applicatio where you can get information bassed on your location or by searching.
+The app is build with javascript and gets the data from  [http://openweathermap.org](http://openweathermap.org) and also shows a picture in background bassed on the name of the city you search this made possible from `flicker` API.
+
 ___
 #### Libraries used
 * Webpack
